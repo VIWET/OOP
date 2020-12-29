@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Virtues" table="VIRTUES">
+        <id name="characterID" >
+            <column name="CHARACTER_ID"/>
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="conscienceConviction">
+            <column name="CONSCIENCE_CONVICTION"/>
+        </property>
+        <property name="selfControlInstinct">
+            <column name="SELFCONTROL_INSTINCT"/>
+        </property>
+        <property name="courage">
+            <column name="COURAGE"/>
+        </property>
+
+        <one-to-one name="characterSheet" class="CharacterSheet" cascade="all"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="MaskNature" table="NATURES_MASKS">
+        <id name="maskNatureId" >
+            <column name="NATURE_MASK_ID"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="title">
+            <column name="TITLE"/>
+        </property>
+        <property name="description">
+            <column name="NATURE_MASK_DESCRIPTION"/>
+        </property>
+
+        <set name="characterSheetNature" inverse="true" fetch="join" lazy="false" cascade="refresh">
+            <key column="NATURE_ID" not-null = "true"/>
+            <one-to-many class="CharacterSheet"/>
+        </set>
+
+        <set name="characterSheetMask" inverse="true" fetch="join" lazy="false" cascade="refresh">
+            <key column="MASK_ID" not-null = "true"/>
+            <one-to-many class="CharacterSheet"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Health" table="CHARACTERS_HEALTH">
+        <id name="characterId" >
+            <column name="CHARACTER_ID"/>
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="health">
+            <column name="HEALTH"/>
+        </property>
+        <property name="modifier">
+            <column name="MODIFIER"/>
+        </property>
+
+        <one-to-one name="characterSheet" class="CharacterSheet" cascade="all"/>
+    </class>
+</hibernate-mapping>

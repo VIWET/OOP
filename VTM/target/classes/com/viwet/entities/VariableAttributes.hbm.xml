@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="VariableAttributes" table="VARIABLE_ATTRIBUTES">
+        <id name="characterId" >
+            <column name="CHARACTER_ID"/>
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="humanityPath">
+            <column name="HUMANITY_PATH"/>
+        </property>
+        <property name="willpower">
+            <column name="WILLPOWER"/>
+        </property>
+        <property name="bloodpool">
+            <column name="BLOODPOOL"/>
+        </property>
+
+        <one-to-one name="characterSheet" class="CharacterSheet" cascade="all"/>
+    </class>
+</hibernate-mapping>

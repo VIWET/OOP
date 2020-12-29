@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Background" table="BACKGROUNDS">
+        <id name="backgroundId" >
+            <column name="BACKGROUND_ID"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="title">
+            <column name="TITLE"/>
+        </property>
+        <property name="description">
+            <column name="BACKGROUND_DESCRIPTION"/>
+        </property>
+
+        <set name="characterSheets" table = "CHARACTERS_BACKGROUNDS" lazy="false" fetch="join" cascade="all">
+            <key column="BACKGROUND_ID" not-null = "true"/>
+            <many-to-many class="CharacterSheet">
+                <column name="CHARACTER_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+
+    </class>
+</hibernate-mapping>

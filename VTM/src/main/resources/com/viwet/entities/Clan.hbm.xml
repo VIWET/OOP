@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Clan" table="CLANS">
+        <id name="clanId" >
+            <column name="CLAN_ID"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="title">
+            <column name="TITLE"/>
+        </property>
+        <property name="description">
+            <column name="CLAN_DESCRIPTION"/>
+        </property>
+
+        <set name="characterSheets" inverse="true" cascade="refresh">
+            <key column="CLAN_ID" not-null = "true"/>
+            <one-to-many class="CharacterSheet"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Abilities" table="ABILITIES">
+        <id name="characterId" >
+            <column name="CHARACTER_ID"/>
+            <generator class="identity">
+            </generator>
+        </id>
+
+        <property name="alertness">
+            <column name="ALERTNESS"/>
+        </property>
+        <property name="athletic">
+            <column name="ATHLETIC"/>
+        </property>
+        <property name="brawl">
+            <column name="BRAWL"/>
+        </property>
+        <property name="dodge">
+            <column name="DODGE"/>
+        </property>
+        <property name="empathy">
+            <column name="EMPATHY"/>
+        </property>
+        <property name="expression">
+            <column name="EXPRESSION"/>
+        </property>
+        <property name="intimidation">
+            <column name="INTIMIDATION"/>
+        </property>
+        <property name="leadership">
+            <column name="LEADERSHIP"/>
+        </property>
+        <property name="streetwise">
+            <column name="STREETWISE"/>
+        </property>
+        <property name="subterfuge">
+            <column name="SUBTERFUGE"/>
+        </property>
+
+        <property name="animalKen">
+            <column name="ANIMALKEN"/>
+        </property>
+        <property name="crafts">
+            <column name="CRAFTS"/>
+        </property>
+        <property name="drive">
+            <column name="DRIVE"/>
+        </property>
+        <property name="etiquette">
+            <column name="ETIQUETTE"/>
+        </property>
+        <property name="firearms">
+            <column name="FIREARMS"/>
+        </property>
+        <property name="melee">
+            <column name="MELEE"/>
+        </property>
+        <property name="performance">
+            <column name="PERFORMANCE"/>
+        </property>
+        <property name="larceny">
+            <column name="LARCENY"/>
+        </property>
+        <property name="stealth">
+            <column name="STEALTH"/>
+        </property>
+        <property name="survival">
+            <column name="SURVIVAL"/>
+        </property>
+
+        <property name="academics">
+            <column name="ACADEMICS"/>
+        </property>
+        <property name="computer">
+            <column name="COMPUTER"/>
+        </property>
+        <property name="finance">
+            <column name="FINANCE"/>
+        </property>
+        <property name="investigation">
+            <column name="INVESTIGATION"/>
+        </property>
+        <property name="law">
+            <column name="LAW"/>
+        </property>
+        <property name="linguistic">
+            <column name="LINGUISTIC"/>
+        </property>
+        <property name="medicine">
+            <column name="MEDICINE"/>
+        </property>
+        <property name="occult">
+            <column name="OCCULT"/>
+        </property>
+        <property name="politics">
+            <column name="POLITICS"/>
+        </property>
+        <property name="science">
+            <column name="SCIENCE"/>
+        </property>
+
+        <one-to-one name="characterSheet" class="CharacterSheet" cascade="all"/>
+    </class>
+</hibernate-mapping>

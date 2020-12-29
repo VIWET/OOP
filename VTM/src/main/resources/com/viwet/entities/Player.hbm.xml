@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Player" table="PLAYERS">
+        <id name="playerId" >
+            <column name="PLAYER_ID"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="login">
+            <column name="LOGIN"/>
+        </property>
+        <property name="passwordHash">
+            <column name="PASSWORD_HASH"/>
+        </property>
+        <property name="name">
+            <column name="PLAYER_NAME"/>
+        </property>
+
+        <set name="characterSheets" inverse="true" fetch="join" lazy="false" cascade="all">
+            <key column="PLAYER_ID" not-null = "true"/>
+            <one-to-many class="CharacterSheet"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

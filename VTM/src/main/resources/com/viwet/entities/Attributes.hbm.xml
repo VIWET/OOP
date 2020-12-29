@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+                "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="Attributes" table="ATTRIBUTES">
+        <id name="characterID" >
+            <column name="CHARACTER_ID"/>
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="strength">
+            <column name="STRENGTH"/>
+        </property>
+        <property name="dexterity">
+            <column name="DEXTERITY"/>
+        </property>
+        <property name="stamina">
+            <column name="STAMINA"/>
+        </property>
+
+        <property name="charisma">
+            <column name="CHARISMA"/>
+        </property>
+        <property name="manipulation">
+            <column name="MANIPULATION"/>
+        </property>
+        <property name="appearance">
+            <column name="APPEARANCE"/>
+        </property>
+
+        <property name="perception">
+            <column name="PERCEPTION"/>
+        </property>
+        <property name="intelligence">
+            <column name="INTELLIGENCE"/>
+        </property>
+        <property name="wits">
+            <column name="WITS"/>
+        </property>
+
+        <one-to-one name="characterSheet" class="CharacterSheet" cascade="all"/>
+    </class>
+</hibernate-mapping>

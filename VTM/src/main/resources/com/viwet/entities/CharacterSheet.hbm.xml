@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "classpath://org/hibernate/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.viwet.entities">
+    <class name="CharacterSheet" table="CHARACTER_SHEETS">
+        <id name="characterId">
+            <column name="CHARACTER_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name">
+            <column name="CHARACTER_NAME"/>
+        </property>
+        <property name="generation">
+            <column name="GENERATION"/>
+        </property>
+        <property name="experience">
+            <column name="experience"/>
+        </property>
+        <one-to-one name="abilities" class="Abilities" cascade="all"/>
+        <one-to-one name="attributes" class="Attributes" cascade="all"/>
+        <many-to-one name="player" class="Player" column="PLAYER_ID" cascade="refresh"/>
+        <many-to-one name="clan" class="Clan" column="CLAN_ID" cascade="refresh"/>
+        <many-to-one name="mask" class="MaskNature" column="MASK_ID" cascade="refresh"/>
+        <many-to-one name="nature" class="MaskNature" column="NATURE_ID" cascade="refresh"/>
+
+        <set name="backgrounds" table = "CHARACTERS_BACKGROUNDS" lazy="false" fetch="join" cascade="all">
+            <key column="CHARACTER_ID" not-null = "true"/>
+            <many-to-many class="Background">
+                <column name="BACKGROUND_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+
+        <set name="disciplines" table = "CHARACTERS_DISCIPLINES" lazy="false" fetch="join" cascade="all">
+            <key column="CHARACTER_ID" not-null = "true"/>
+            <many-to-many class="Discipline">
+                <column name="DISCIPLINE_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
